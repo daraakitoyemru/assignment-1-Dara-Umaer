@@ -77,5 +77,13 @@ public class Card {
 		
 		return name + suit;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

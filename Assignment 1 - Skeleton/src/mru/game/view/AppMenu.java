@@ -24,7 +24,7 @@ public class AppMenu {
 		System.out.print("Enter a choice: ");
 		char option = input.nextLine().charAt(0);
 
-		return option;
+		return Character.toLowerCase(option);
 	}
 	
 	public char showSubMenu() {
@@ -36,7 +36,13 @@ public class AppMenu {
 		System.out.print("Enter a choice: ");
 		char option = input.nextLine().charAt(0);
 
-		return option;
+		return Character.toLowerCase(option);
+	}
+	
+	public String promptName() {
+		System.out.println("Enter a name here: ");
+		String name = input.nextLine().trim();
+		return name;
 	}
 	
 	public void showTopPlayers() {

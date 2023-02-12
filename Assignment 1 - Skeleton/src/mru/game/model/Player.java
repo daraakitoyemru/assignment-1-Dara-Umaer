@@ -11,7 +11,7 @@ public class Player {
 	public int numOfWins;
 	public int balance;
 	
-	public Player(String name, int numOfWins, int balance) {
+	public Player(String name, int balance, int numOfWins) {
 		this.name = name;
 		this.numOfWins = numOfWins;
 		this.balance = balance;
@@ -43,6 +43,6 @@ public class Player {
 	}
 	
 	public String format() {
-		return name+","+numOfWins+","+balance;
+		return name+","+balance+","+numOfWins;
 	}
 }
