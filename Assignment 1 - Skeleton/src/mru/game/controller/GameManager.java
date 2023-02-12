@@ -74,7 +74,7 @@ public class GameManager {
 		game = new PuntoBancoGame();
 		//Object card = game.deal();
 		System.out.println("Overall deal: "+game.gameDeal());
-		System.out.println(game.getCard());
+		
 		System.out.println(game.runGame());
 	
 	}
