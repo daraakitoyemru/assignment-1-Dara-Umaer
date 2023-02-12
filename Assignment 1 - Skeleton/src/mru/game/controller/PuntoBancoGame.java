@@ -75,16 +75,6 @@ public class PuntoBancoGame {
 		}
 	
 		
-//		public ArrayList<String> initBankerDeal() {
-//			Object deal1 = deal();
-//			Object deal2 = deal();
-//			bankerDeal.add(deal1.toString());
-//			bankerDeal.add(deal2.toString());
-//			String listString = String.join(", ", bankerDeal);
-//			
-//			System.out.println(listString);
-//			return bankerDeal;
-//		}
 		
 		public List<String> getCard() {
 			String card = String.join(" , ", this.gameDeal());
