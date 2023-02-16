@@ -38,9 +38,11 @@ public class Player {
 		return numOfWins;
 	}
 	
-	public int setBalance() {
+	public int getBalance() {
 		return balance;
 	}
+	
+	
 	
 	public String format() {
 		return name+","+balance+","+numOfWins;

@@ -14,12 +14,14 @@ public class CardDeck {
 	 * deck holds all of the cards that currently are in the current deck
 	 */
 	private ArrayList <Card> deck;
+	private int currentCard;
 	
 	/**
 	 * This constructor initiate the arraylist and calls the repective methods to create a new deck
 	 */
 	public CardDeck() {
 		deck = new ArrayList<Card>();
+		currentCard = 0;
 		createDeck();
 		shuffleDeck();
 	}
@@ -41,7 +43,21 @@ public class CardDeck {
 		}
 		
 	}
+	
+	public int cardsRemaining() {
+		return deck.size() - currentCard;
+	}
 
+	public Card deal() {
+		if (currentCard == deck.size()) {
+			System.out.println("No cards left for this game. Play again to reset the deck");
+			throw new IllegalStateException("No cards left");
+		}
+		currentCard++;
+		deck.remove(currentCard);
+		return deck.get(currentCard - 1);
+	}
+	
 	/**
 	 * this method shuffle the deck after creating a new deck
 	 */

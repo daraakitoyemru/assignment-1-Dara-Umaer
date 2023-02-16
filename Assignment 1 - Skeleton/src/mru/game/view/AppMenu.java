@@ -17,10 +17,10 @@ public class AppMenu {
 	
 	public char showMainMenu() {
 		
-		System.out.println("Select one of these options:\n");
+		System.out.println("\nSelect one of these options:\n");
 		System.out.println("\t(P) Play game");
 		System.out.println("\t(S) Search");
-		System.out.println("\t(E) Exit\n");
+		System.out.println("\t(E) Save and Exit\n");
 		System.out.print("Enter a choice: ");
 		char option = input.nextLine().charAt(0);
 
@@ -40,21 +40,25 @@ public class AppMenu {
 	}
 	
 	public String promptName() {
-		System.out.println("Enter a name here: ");
-		String name = input.nextLine().trim();
+		System.out.print("Enter a name here: ");
+		String name = input.nextLine().trim().toLowerCase();
 		return name;
 	}
 	
-	public void showTopPlayers() {
-		String name = "test";
-		
-		int wins = 20;
-		int balance = 90;
-		
-		System.out.println("+====================+======================+");
-		System.out.println("|NAME                |# WINS                |");
-		System.out.println("+====================+======================+");
-		System.out.println("|"+name+"                |"+wins+"                    |");
-		System.out.println("|"+name+"------------+"+wins+"--------------|");
+	public void formatPlayerInfo(String name, int wins, int balance) {
+		System.out.println("                 - PLAYER INFO -");
+		System.out.println("+===============+===============+========================+");
+		System.out.println("|NAME\t\t|# WINS\t\t|BALANCE\t\t\t|");
+		System.out.println("+===============+===============+========================+");
+		System.out.println("|" + name+ "\t\t|" + wins + "\t\t|" + balance +" $" + "\t\t\t|");
+		System.out.println("+---------------+---------------+------------------------+");
+
 	}
+	
+	public void formatTopPlayer() {
+		
+
+	}
+	
+
 }

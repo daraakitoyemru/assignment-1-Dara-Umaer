@@ -10,10 +10,9 @@ public class AppDriver {
 		// This is the starting point of the project!
 		// hint - It usually calls method from GameManager class to start the app, so only one or two lines will be written here
 		
-		AppMenu display = new AppMenu();
+		//AppMenu display = new AppMenu();
 		GameManager g = new GameManager();
 		
-		g.launchApp();
 	}
 
 }
