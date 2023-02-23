@@ -1,5 +1,5 @@
 ali,87,11
-khosro,1609,18
+khosro,1489,18
 eli,1209,24
-jenny,120,1
+jenny,90,1
 ren,100,0

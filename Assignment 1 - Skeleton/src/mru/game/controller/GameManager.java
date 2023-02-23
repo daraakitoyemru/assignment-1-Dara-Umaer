@@ -24,7 +24,7 @@ public class GameManager {
 	 */
 
 	
-	private final String FILE_PATH = "res/CasinoInfo.txt";
+	private final String FILE_PATH = "/Users/daraakitoye/assignment-1-Dara-Umaer/Assignment 1 - Skeleton/res/CasinoInfo.txt";
 	public ArrayList<Player> players;
 	public AppMenu menu;
 	public PuntoBancoGame game;
@@ -58,15 +58,14 @@ public class GameManager {
 				flag = false;
 				break;
 			case 'e':
-				flag = false;
 				Save();
 				System.out.println("Saving...");
 				System.out.println("Thanks for playing");
-				break;
-			default:
-				System.out.println("Invalid input");
 				flag = false;
 				break;
+			default:
+				System.out.println("\n****** Invalid input ******");
+				continue;
 			}
 			
 		}
@@ -81,6 +80,9 @@ public class GameManager {
 		 * 
 		 * */
 		File db = new File(FILE_PATH);
+//		System.out.println(db.exists());
+//		System.out.println(db.getAbsolutePath());
+
 		PrintWriter pw = new PrintWriter(db);
 		
 		
@@ -98,8 +100,7 @@ public class GameManager {
 		 * */
 		// TODO Auto-generated method stub
 		
-		char bet;
-		int betAmount;
+
 		ArrayList<Integer> points;
 		boolean flag = true;
 		Player p = getPlayer();
@@ -118,8 +119,11 @@ public class GameManager {
 			if (option == 'n') {
 				launchApp();
 				flag = false;
-				break;
-				
+				break;			
+			} else if (option != 'y' && option != 'n') {
+				System.out.println("Invalid input");
+				gMenu.promptPlayAgain();
+				continue;
 			}
 			flag = false;
 		}
@@ -157,32 +161,42 @@ public class GameManager {
 		//Allows user to navigate sub menu
 		
 		char option = menu.showSubMenu();
+		boolean flag = true;
 		
-		switch (option) {
-		case 't':
-			showTopPlayer();
-			break;
-		case 'n':
-			String name = menu.promptName();
+		while (flag) {
+			switch (option) {
+			case 't':
+				showTopPlayer();
+				option = menu.showSubMenu();
+				continue;
+				
+			case 'n':
+				String name = menu.promptName();
 
-			Player currentP = searchByName(name);
-			if(currentP == null) {
-				throw new NullPointerException("Player not found. Please restart");
-			}
-			menu.formatPlayerInfo(currentP.getName(), currentP.getWins(), currentP.getBalance());
-			break;
-		case 'b':
-			this.launchApp();
-			break;
-		default:
-			System.out.println("Inavlid input");
-			
-			break;
-		}
-	}
+				Player currentP = searchByName(name);
+				if(currentP == null) {
+					throw new NullPointerException("Player not found. Please restart");
+				}
+				menu.formatPlayerInfo(currentP.getName(), currentP.getWins(), currentP.getBalance());
+				option = menu.showSubMenu();
+				continue;
+
+			case 'b':
+				launchApp();
+				flag = false;
+				break;
+			default:
+				System.out.println("\n****** Invalid input ******");
+				option = menu.showSubMenu();
+
+				break;
+		}		
+		
+	}	
+	
+ }
 	
 	
-
 	public Player searchByName(String name) {
 		/**
 		 * Check if given name exists in Player array

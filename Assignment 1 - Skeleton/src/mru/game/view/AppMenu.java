@@ -55,10 +55,6 @@ public class AppMenu {
 
 	}
 	
-	public void formatTopPlayer() {
-		
-
-	}
 	
 
 }
